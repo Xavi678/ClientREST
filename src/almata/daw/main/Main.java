@@ -51,7 +51,8 @@ public class Main {
 			
 			i++;
 		}
-		
+	//URL nova=	new URL("hh");
+	
 Lllistaproductes llista2=mapper.readValue(new URL("http://localhost:8080/ServeiREST/api/serveiCarro/obtenirProductes/data/"+token.getId()+"/12-03-2012/03-07-2014"),Lllistaproductes.class  );
 		
 		List<Producte> productes2=llista2.getProductes();
