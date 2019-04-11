@@ -23,12 +23,12 @@ public class Main {
 		Producte producte= new Producte();
 		//mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		System.out.println("Autenticar");
-		Token token=mapper.readValue(new URL("http://localhost:8080/ServeiREST/api/serveiCarro/Autenticar/admin/admin"), Token.class);
+		Token token=mapper.readValue(new URL("http://localhost:8080/ServeiREST/api/serveiCarro/Autenticar/tito/tito"), Token.class);
 	
 		System.out.println(token.getId());
 		
 		System.out.println("Obtenir un producte");
-		Producte p=mapper.readValue(new URL("http://localhost:8080/ServeiREST/api/serveiCarro/obtenirProducte/"+token.getId()+"/9"),Producte.class );
+		Producte p=mapper.readValue(new URL("http://localhost:8080/ServeiREST/api/serveiCarro/obtenirProducte/"+token.getId()+"/65"),Producte.class );
 		System.out.println("Nom: "+p.getNom()+" Preu: "+p.getPreu()+" Disponibilitat: "+p.getDisponibilitat());
 		
 		
