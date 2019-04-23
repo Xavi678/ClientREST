@@ -2,7 +2,8 @@ package almata.daw.models;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 
 public class Lllistaproductes {
 	
@@ -18,7 +19,7 @@ public class Lllistaproductes {
 		this.productes = productes;
 	}
 
-	@JsonProperty("Productes")
+	
 	public List<Producte> getProductes() {
 		return productes;
 	}

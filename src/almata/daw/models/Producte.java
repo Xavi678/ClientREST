@@ -1,11 +1,9 @@
 package almata.daw.models;
 
 import javax.xml.bind.annotation.XmlElement;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
 
 
 public class Producte {
@@ -99,7 +97,7 @@ public class Producte {
 	
 
 
-	@JsonProperty("data")
+
 	public String getData() {
 		return data;
 	}
@@ -169,28 +167,27 @@ public class Producte {
 
 
 
-	@JsonProperty("nom")
 	public String getNom() {
 		return nom;
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	@JsonProperty("disponibilitat")
+	
 	public int getDisponibilitat() {
 		return disponibilitat;
 	}
 	public void setDisponibilitat(int disponibilitat) {
 		this.disponibilitat = disponibilitat;
 	}
-	@JsonProperty("descripcio")
+	
 	public String getDescripcio() {
 		return descripcio;
 	}
 	public void setDescripcio(String descripcio) {
 		this.descripcio = descripcio;
 	}
-	@JsonProperty("preu")
+	
 	public int getPreu() {
 		return preu;
 	}
@@ -198,7 +195,7 @@ public class Producte {
 		this.preu = preu;
 	}
 
-	@JsonProperty("propietari")
+	
 	public String getPropietari() {
 		return propietari;
 	}
@@ -208,7 +205,7 @@ public class Producte {
 		this.propietari = propietari;
 	}
 
-	@JsonProperty("id")
+
 	public int getId() {
 		return id;
 	}
@@ -219,7 +216,7 @@ public class Producte {
 	}
 
 
-	@JsonProperty("venuts")
+	
 	public int getVenuts() {
 		return venuts;
 	}

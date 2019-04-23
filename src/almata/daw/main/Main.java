@@ -1,25 +1,30 @@
 package almata.daw.main;
 
 import java.io.IOException;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.api.json.JSONConfiguration;
 
 import almata.daw.models.Lllistaproductes;
 import almata.daw.models.Producte;
-import almata.daw.models.Token;
+
 
 public class Main {
 
-	public static void main(String[] args) throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
+	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
-		ObjectMapper mapper= new ObjectMapper();
+		/*ObjectMapper mapper= new ObjectMapper();
 		Producte producte= new Producte();
 		//mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		System.out.println("Autenticar");
@@ -68,10 +73,25 @@ Lllistaproductes llista2=mapper.readValue(new URL("http://localhost:8080/ServeiR
 			
 			i1++;
 		}
+		*/
 		
-		
-		
-	
+		 ClientConfig clientConfig = new DefaultClientConfig();
+	        clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
+	        Client client = Client.create(clientConfig);
+
+	        // GET request to findBook resource with a query parameter
+	        String getToken = "http://localhost:8080/ServeiREST/api/serveiCarro/Autenticar";
+	        String webResourceGet = client.resource(getToken).queryParam("nom", "admin").queryParam("passwd", "admin").accept(MediaType.APPLICATION_JSON).get(String.class);
+	       /* ClientResponse response = webResourceGet.get(ClientResponse.class);
+	        String responseEntity = response.getEntity(String.class);
+
+	        if (response.getStatus() != 200) {
+	            throw new WebApplicationException();
+	        }
+
+	        System.out.println(responseEntity.toString());
+	*/
+	        System.out.println("Token :"+webResourceGet);
 	}
 
 }
